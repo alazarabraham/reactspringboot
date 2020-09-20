@@ -6,6 +6,7 @@ import ProgramDetails from "./components/ProgramDetails"
 import { Route,Switch } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import AddProgram from './components/AddProgram';
+import EditProgram from './components/EditProgram';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
       <BrowserRouter>
       <Switch>
        <Route exact path="/" component={Program}/>
+       <Route exact path="/editprogram/:programId" component={EditProgram}/>
+
        <Route exact path="/program/:programId" component={ProgramDetails}/>
        <Route exact path="/addProgram" component={AddProgram}/>
     

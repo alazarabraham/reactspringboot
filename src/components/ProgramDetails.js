@@ -50,7 +50,7 @@ export default class ProgramDetails extends Component{
                 <tbody>
                     <td></td>
                 </tbody>
-        <Link to={`/editprogram/${this.state.programDetails.programId}`}><Button class="btn-block">Edit</Button></Link>
+                <Link to={`/editprogram/${this.state.programDetails.programId}`}><Button class="btn-block">Edit</Button></Link>
                 
              <Button class="btn-block" onClick={this.onDelete.bind(this)}>Delete</Button>
 
