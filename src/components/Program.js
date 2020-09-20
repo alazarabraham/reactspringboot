@@ -26,7 +26,6 @@ getProgram(){
         //setting the state to the json data, consoling it with a callback function
         this.setState({programs:response.data},()=>{
             
-            console.log(this.state)
 
         }
             

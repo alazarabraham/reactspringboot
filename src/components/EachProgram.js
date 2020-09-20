@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import { render } from '@testing-library/react';
 import {BrowserRouter, Link,Router} from 'react-router-dom'
-import {Table} from 'react-bootstrap';
+import {Table,Container, Button} from 'react-bootstrap';
 
 export default class EachProgram extends Component{
     constructor(props){
@@ -14,10 +14,10 @@ export default class EachProgram extends Component{
 
   
     render(){
-        console.log(this.props.eachProgram)
         return(
             <div>
-                <Table striped bordered hover>
+                <Container>
+                     <Table striped bordered hover>
                     <thead>
                         <th>Program Id</th>
                         <th>Program Name</th>
@@ -32,9 +32,14 @@ export default class EachProgram extends Component{
                             )
                         })}
                     </tbody>
+
                 </Table>
+                <Link to={"/addprogram"}><Button>Add Program</Button></Link>
+
            
                        
+                </Container>
+               
                 
 
             </div>

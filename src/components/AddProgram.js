@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios'
 import {BrowserRouter, Link,Router} from 'react-router-dom'
-import {Table,Button} from 'react-bootstrap';
+import {Table,Button, Form} from 'react-bootstrap';
 
 export default class AddProgram extends Component{
     
@@ -33,7 +33,7 @@ export default class AddProgram extends Component{
 
                 <h1>Add Program</h1>
                 <form onSubmit={this.onSubmit.bind(this)}>
-                    <label>Program Name</label>
+                    <Form.Label>Program Name</Form.Label>
                     <input type="text" name="programName" ref="programName"/>
                     <input type="submit" value="save"/>
                 </form>

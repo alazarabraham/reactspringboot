@@ -20,7 +20,6 @@ export default class ProgramDetails extends Component{
             //setting the state to the json data, consoling it with a callback function
             this.setState({programs:response.data},()=>{
                 this.setState({programDetails: response.data}, ()=> {
-                    console.log(this.state)
                 })
     
             }
@@ -28,6 +27,15 @@ export default class ProgramDetails extends Component{
                 )
         })
         .catch(err=> console.log(err))
+    }
+
+    onDelete(){
+        let programId = this.state.programDetails.programId;
+        axios.delete(`http://localhost:8080/api/programs/${programId}`)
+        .then(response=>{
+            this.props.history.push("/");
+        })
+        .catch(error=>console.log(error))
     }
   
     render(){
@@ -44,7 +52,7 @@ export default class ProgramDetails extends Component{
                 </tbody>
         <Link to={`/editprogram/${this.state.programDetails.programId}`}><Button class="btn-block">Edit</Button></Link>
                 
-                <Link to={`/deleteprogram/${this.state.programDetails.programId}`}><Button class="btn-block">Delete</Button></Link>
+             <Button class="btn-block" onClick={this.onDelete.bind(this)}>Delete</Button>
 
                </Table>
             </div>
