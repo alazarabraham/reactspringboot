@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios'
 import {BrowserRouter, Link,Router} from 'react-router-dom'
+import {Table,Button} from 'react-bootstrap';
 
 export default class ProgramDetails extends Component{
     constructor(props){
@@ -34,7 +35,18 @@ export default class ProgramDetails extends Component{
             <div>
                 <Link to="/">Back</Link>
                <h1>Details</h1>
-        <h1>{this.state.programDetails.programName}</h1>
+               <Table>
+                <thead>
+                    <th>{this.state.programDetails.programName}</th>
+                </thead>
+                <tbody>
+                    <td></td>
+                </tbody>
+        <Link to={`/editprogram/${this.state.programDetails.programId}`}><Button class="btn-block">Edit</Button></Link>
+                
+                <Link to={`/deleteprogram/${this.state.programDetails.programId}`}><Button class="btn-block">Delete</Button></Link>
+
+               </Table>
             </div>
         )
     }

@@ -5,6 +5,7 @@ import Program from './components/Program'
 import ProgramDetails from "./components/ProgramDetails"
 import { Route,Switch } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
+import AddProgram from './components/AddProgram';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Switch>
        <Route exact path="/" component={Program}/>
        <Route exact path="/program/:programId" component={ProgramDetails}/>
-
+       <Route exact path="/addProgram" component={AddProgram}/>
     
 
      </Switch>

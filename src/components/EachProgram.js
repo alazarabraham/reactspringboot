@@ -8,17 +8,32 @@ export default class EachProgram extends Component{
     constructor(props){
         super(props);
         this.state={
-            eachProgram:props.eachProgram
+            eachProgram:props.programs
         }
     }
 
   
     render(){
+        console.log(this.props.eachProgram)
         return(
             <div>
-                <td>{this.state.eachProgram.programId}</td>
-           <Link to={`/program/${this.state.eachProgram.programId}`}>
-                             {this.state.eachProgram.programName}</Link>
+                <Table striped bordered hover>
+                    <thead>
+                        <th>Program Id</th>
+                        <th>Program Name</th>
+                    </thead>
+                    <tbody>
+                        {this.props.eachProgram.map((program,programId)=>{
+                            return(
+                                <tr key={programId}>
+                                    <td>{program.programId}</td>
+                                    <td><Link to={`program/${program.programId}`}>{program.programName}</Link></td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </Table>
+           
                        
                 
 

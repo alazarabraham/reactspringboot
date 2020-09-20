@@ -4,6 +4,7 @@ import axios from 'axios';
 import { render } from '@testing-library/react';
 import EachProgram from './EachProgram'
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
+import ProgramDetails from './ProgramDetails';
 
 
 class Program extends Component{
@@ -33,21 +34,11 @@ getProgram(){
     })
 }
 render(){
-    const programs = this.state.programs.map((program, i)=>{
+    const programs = this.state.programs
         return(
-               <EachProgram key={program.programId} eachProgram={program} />
+               <EachProgram  eachProgram={programs} />
+
             )
-    })
-    return(
-             <div>
-                <h1>Programs</h1>
-                <ListGroup striped bordered hover variant="dark">
-                <ListGroup.Item >{programs}</ListGroup.Item>
-              
-                </ListGroup>        
-                  
-            </div>
-    )
-}
+        }
 }
 export default Program;
