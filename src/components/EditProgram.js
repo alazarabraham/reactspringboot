@@ -87,6 +87,8 @@ export default class AddProgram extends Component{
                         <Form.Label>Program Name</Form.Label>
 
                         <Form.Control type="text" name="programName" ref="programName" placeholder={this.state.programName} onChange={this.handleInputChange}/>
+                        <Form.Label>Instructor</Form.Label>
+
                         <Form.Control type="text" name="instructor" ref="instructor" placeholder={this.state.instructor} onChange={this.handleInputChange}/>
                         <Form.Group>
                             <Form.Label>Semester</Form.Label>
@@ -106,7 +108,7 @@ export default class AddProgram extends Component{
                             </Form.Control>
                         </Form.Group>
                       
-                        <input type="submit" value="save"/>
+                        <Button type="submit"  variant="dark" >Save</Button>
                     </Form>
                     </Col>
                 </Container>

@@ -60,9 +60,8 @@ export default class AddProgram extends Component{
                             <option value="Graduate program">Graduate program</option>
                             </Form.Control>
                         </Form.Group>
-                        <Form.Label>Level</Form.Label>
                        
-                        <Form.Control type="submit" value="save"/>
+                        <Button  type="submit" value="save" variant="dark">Save</Button>
                     </Form>
                     </Col>
                 </Container>

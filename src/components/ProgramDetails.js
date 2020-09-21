@@ -47,7 +47,7 @@ export default class ProgramDetails extends Component{
                       <h1>Program details</h1>
                
                <Card>
-                   <Card.Img src="https://allcoinbits.com/wp-content/uploads/2018/02/Enchiridion.jpg" width="300" height="400"/>
+                   <Card.Img src="https://allcoinbits.com/wp-content/uploads/2018/02/Enchiridion.jpg" width="200" height="300"/>
                    <Card.Body>
                        <Card.Title>{this.state.programDetails.programName}</Card.Title>
                        <Card.Text>{this.state.programDetails.instructor}</Card.Text>
