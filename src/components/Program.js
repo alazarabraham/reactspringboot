@@ -11,7 +11,9 @@ class Program extends Component{
     constructor(){
         super();
         this.state = {
-            programs: []
+            programs: [],
+            currentYear: new Date().getFullYear()
+
         }
     }
 

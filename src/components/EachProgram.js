@@ -21,6 +21,9 @@ export default class EachProgram extends Component{
                     <thead>
                         <th>Program Id</th>
                         <th>Program Name</th>
+                        <th>Instructor</th>
+                        <th>Semester </th>
+                        <th>Level</th>
                     </thead>
                     <tbody>
                         {this.props.eachProgram.map((program,programId)=>{
@@ -28,6 +31,10 @@ export default class EachProgram extends Component{
                                 <tr key={programId}>
                                     <td>{program.programId}</td>
                                     <td><Link to={`program/${program.programId}`}>{program.programName}</Link></td>
+                                    <td>{program.instructor}</td>
+                                    <td>{program.semester}</td>
+                                    <td>{program.level}</td>
+
                                 </tr>
                             )
                         })}

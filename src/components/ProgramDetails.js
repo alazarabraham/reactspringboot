@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios'
 import {BrowserRouter, Link,Router} from 'react-router-dom'
-import {Table,Button} from 'react-bootstrap';
+import {Table,Button, Container, Card,Col} from 'react-bootstrap';
 
 export default class ProgramDetails extends Component{
     constructor(props){
@@ -42,19 +42,29 @@ export default class ProgramDetails extends Component{
         return(
             <div>
                 <Link to="/">Back</Link>
-               <h1>Details</h1>
-               <Table>
-                <thead>
-                    <th>{this.state.programDetails.programName}</th>
-                </thead>
-                <tbody>
-                    <td></td>
-                </tbody>
-                <Link to={`/editprogram/${this.state.programDetails.programId}`}><Button class="btn-block">Edit</Button></Link>
-                
-             <Button class="btn-block" onClick={this.onDelete.bind(this)}>Delete</Button>
+                <Container>
+                    <Col md={{ span: 6, offset: 3 }}>
+                      <h1>Program details</h1>
+               
+               <Card>
+                   <Card.Img src="https://allcoinbits.com/wp-content/uploads/2018/02/Enchiridion.jpg" width="300" height="400"/>
+                   <Card.Body>
+                       <Card.Title>{this.state.programDetails.programName}</Card.Title>
+                       <Card.Text>{this.state.programDetails.instructor}</Card.Text>
+                       <Card.Text>{this.state.programDetails.semester}</Card.Text>
+                       <Card.Text>{this.state.programDetails.level}</Card.Text>
 
-               </Table>
+                       <Link to={`/editprogram/${this.state.programDetails.programId}`}><Button class="btn-block">Edit</Button></Link>
+
+                        <Button class="btn-block" onClick={this.onDelete.bind(this)}>Delete</Button>
+                   </Card.Body>
+               </Card>
+               
+
+                    </Col>
+                  
+                </Container>
+              
             </div>
         )
     }
