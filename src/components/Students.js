@@ -2,30 +2,30 @@ import React, { Component } from 'react';
 import {Switch, Route} from 'react-router-dom';
 import axios from 'axios';
 import { render } from '@testing-library/react';
-import EachProgram from './EachProgram'
+import EachStudent from './EachStudent'
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import ProgramDetails from './ProgramDetails';
 
 
-class Program extends Component{
+class Students extends Component{
     constructor(){
         super();
         this.state = {
-            programs: []
+            students: []
 
         }
     }
 
 componentDidMount(){
-this.getProgram();
+this.getStudent();
 }
 
 //fetching Data method
-getProgram(){
-    axios.get("http://localhost:8080/api/programs")
+getStudent(){
+    axios.get("http://localhost:8080/api/students")
     .then(response=>{
         //setting the state to the json data, consoling it with a callback function
-        this.setState({programs:response.data},()=>{
+        this.setState({students:response.data},()=>{
             
 
         }
@@ -34,11 +34,11 @@ getProgram(){
     })
 }
 render(){
-    const programs = this.state.programs
+    const students = this.state.students
         return(
-               <EachProgram  programProp={programs} />
+               <EachStudent  studentProp={students} />
 
             )
         }
 }
-export default Program;
+export default Students;

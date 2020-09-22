@@ -3,7 +3,7 @@ import axios from 'axios'
 import {BrowserRouter, Link,Router} from 'react-router-dom'
 import {Table,Button, Form, Container,Col} from 'react-bootstrap';
 
-export default class AddProgram extends Component{
+export default class EditProgram extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -25,7 +25,6 @@ export default class AddProgram extends Component{
     let programId = this.props.match.params.programId;
     axios.get(`http://localhost:8080/api/programs/${programId}`)
     .then(response=>{
-        console.log(response)
         this.setState({
             programId: response.data.programId,
             programName: response.data.programName,
@@ -37,12 +36,13 @@ export default class AddProgram extends Component{
     .catch(error=>console.log(error))
 }
 
-    editProgram(newProgram){
+    editProgram(datainput){
         axios.request({
             method:"put",
             url:`http://localhost:8080/api/programs/${this.state.programId}`,
-            data: newProgram
+            data: datainput
         }).then(response=>{
+            console.log(response)
             this.props.history.push("/");
         }).catch(err => console.log(err))
     }
@@ -53,13 +53,15 @@ export default class AddProgram extends Component{
         programId: this.state.programId,
         programName: this.refs.programName.value,
         instructor: this.refs.instructor.value,
-        semester: this.refs.semester.value,
+        semester: this.refs.semester.value + " " + new Date().getFullYear(),
         level: this.refs.level.value
     }
     this.editProgram(newProgram)    
     e.preventDefault();
 
   }
+
+
 
   handleInputChange(e){
       const target = e.target;
@@ -72,10 +74,11 @@ export default class AddProgram extends Component{
       this.setState({
           [programName]:value,
           [instructor]:value,
-          [semester]:value + " " + new Date().getFullYear(),
+          [semester]:value,
           [level]:value
       })
   }
+  
     render(){
         return(
             <div>
@@ -86,10 +89,10 @@ export default class AddProgram extends Component{
                         <Form onSubmit={this.onSubmit.bind(this)}>
                         <Form.Label>Program Name</Form.Label>
 
-                        <Form.Control type="text" name="programName" ref="programName" placeholder={this.state.programName} onChange={this.handleInputChange}/>
+                        <Form.Control type="text" name="programName" ref="programName" value={this.state.programName} onChange={this.handleInputChange}/>
                         <Form.Label>Instructor</Form.Label>
 
-                        <Form.Control type="text" name="instructor" ref="instructor" placeholder={this.state.instructor} onChange={this.handleInputChange}/>
+                        <Form.Control type="text" name="instructor" ref="instructor" value={this.state.instructor} onChange={this.handleInputChange}/>
                         <Form.Group>
                             <Form.Label>Semester</Form.Label>
 
@@ -112,6 +115,7 @@ export default class AddProgram extends Component{
                     </Form>
                     </Col>
                 </Container>
+
                
             </div>
           

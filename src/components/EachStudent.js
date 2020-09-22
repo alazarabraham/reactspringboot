@@ -4,11 +4,11 @@ import { render } from '@testing-library/react';
 import {BrowserRouter, Link,Router} from 'react-router-dom'
 import {Table,Container, Button} from 'react-bootstrap';
 
-export default class EachProgram extends Component{
+export default class EachStudent extends Component{
     constructor(props){
         super(props);
         this.state={
-            programProp:props.programs
+            studentProp:props.students
         }
     }
 
@@ -26,14 +26,14 @@ export default class EachProgram extends Component{
                         <th>Level</th>
                     </thead>
                     <tbody>
-                        {this.props.programProp.map((program,programId)=>{
+                        {this.props.studentProp.map((student,studentId)=>{
                             return(
-                                <tr key={programId}>
-                                    <td>{program.programId}</td>
-                                    <td><Link to={`program/${program.programId}`}>{program.programName}</Link></td>
-                                    <td>{program.instructor}</td>
-                                    <td>{program.semester}</td>
-                                    <td>{program.level}</td>
+                                <tr key={studentId}>
+                                    <td>{student.studentId}</td>
+                                    <td><Link to={`student/${student.studentId}`}>{student.firstname}</Link></td>
+                                    <td>{student.lastname}</td>
+                                    <td>{student.degreeProgram}</td>
+                                    <td>{student.dob}</td>
 
                                 </tr>
                             )
